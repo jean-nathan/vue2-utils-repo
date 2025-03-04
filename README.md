@@ -10,6 +10,3 @@ Bem-vindo ao **Vue2 Utils Repo**! Este repositório contém uma coleção de uti
 - **Vue CLI**: Testaremos todos os recursos que o Vue CLI oferece, permitindo que você entenda como ele pode ser utilizado para facilitar o desenvolvimento de aplicações Vue.
 
 Este repositório é ideal tanto para iniciantes quanto para desenvolvedores mais experientes que desejam entender como trabalhar com o Vue 2 e aproveitar ao máximo as ferramentas e práticas recomendadas.
-
-
-text
