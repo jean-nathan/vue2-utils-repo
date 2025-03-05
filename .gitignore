@@ -1,5 +1,5 @@
 # Ignorar a pasta node_modules
-node_modules/
+./vue-cli/node_modules/
 
 # Ignorar arquivos .DS_Store (gerados no macOS)
 .DS_Store

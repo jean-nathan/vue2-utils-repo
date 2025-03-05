@@ -142,4 +142,4 @@ Aqui, o `title` do componente filho é passado para o pai, permitindo que o comp
 Os slots no Vue.js são uma poderosa ferramenta para tornar componentes mais reutilizáveis e flexíveis. Eles permitem criar estruturas dinâmicas sem perder a modularidade, facilitando a manutenção e a escalabilidade da aplicação. No entanto, é importante avaliar se o uso de slots é realmente necessário ou se uma simples `prop` pode resolver o problema de maneira mais eficiente.
 
 ## 5. Evidência
-![alt text](image.png)
+![Componente](./imgs/image.png)
