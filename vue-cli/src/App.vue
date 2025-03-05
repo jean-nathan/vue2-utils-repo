@@ -1,48 +1,36 @@
 <template>
   <div id="app">
-    <button @click="clicked">Abrir Modal</button>
-    <transition name="modal">
-      <VueCliModal 
-      v-if="active"
-      :hasActive="clicked"
-      />
+    <nav>
+        <a @click="activePage = 'homePage'">Home</a>
+        <span> | </span>
+        <a @click="activePage = 'aboutPage'">Sobre</a>
+    </nav>
+    <transition mode="out-in">
+    <component :is="activePage"></component>
     </transition>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "App",
   data() {
     return {
-      active: false,
-    };
+      activePage: "HomePage"
+    }
   },
   components: {
-    VueCliModal: () => import("./components/VueCliModal.vue")
-  },
-  methods: {
-    clicked() {
-      this.active = !this.active
-    }
+    HomePage: () => import("./Pages/HomePage.vue"),
+    AboutPage: () => import("./Pages/AboutPage.vue")
   }
-}
+};
 </script>
-
-
 <style scoped>
-* {
-  box-sizing: border-box;
+.v-enter-active {
+  transition: all 0.3s;
 }
-
-.modal-enter,
-.modal-leave-to {
+.v-enter {
   opacity: 0;
-}
-
-.modal-enter-active,
-.modal-leave-to {
-  transition: opacity .3s;
+  transform: translate3d(0,-20px,0);
 }
 </style>
