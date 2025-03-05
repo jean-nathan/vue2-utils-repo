@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../vue.js"></script>
+  <title>list-alphabetical-sort</title>
+  <style>
+    .v-move {
+      transition: transform 3s;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <transition-group tag="ul">
+      <li v-for="language in languages" :key="language">
+        {{ language }}
+      </li>
+    </transition-group>
+    <button @click="filterAZ">A-Z</button>
+    <button @click="filterZA">Z-A</button>
+  </div>
+  <script src="./app.js">
+  </script>
+</body>
+</html>

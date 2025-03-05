@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <nav>
-        <a @click="activePage = 'homePage'">Home</a>
-        <span> | </span>
-        <a @click="activePage = 'aboutPage'">Sobre</a>
-    </nav>
-    <transition mode="out-in">
-    <component :is="activePage"></component>
-    </transition>
+      <transition-group tag="ul">
+      <li v-for="language in languages" :key="language">
+        {{ language }}
+      </li>
+    </transition-group>
+    <button @click="filterAZ">A-Z</button>
+    <button @click="filterZA">Z-A</button>
   </div>
 </template>
 
@@ -16,21 +15,30 @@ export default {
   name: "App",
   data() {
     return {
-      activePage: "HomePage"
+      activePage: "VueCliList",
+      languages: ["PHP", "JS", "PYTHON", "C++"]
     }
   },
-  components: {
-    HomePage: () => import("./Pages/HomePage.vue"),
-    AboutPage: () => import("./Pages/AboutPage.vue")
+  methods: {
+    filterAZ() {
+      this.languages.sort();
+    },
+    filterZA() {
+      this.languages.sort().reverse();
+    }
   }
 };
 </script>
 <style scoped>
-.v-enter-active {
+.v-enter-active,
+.v-leave-active
+ {
   transition: all 0.3s;
 }
-.v-enter {
+
+.v-enter,
+.v-leave-to {
   opacity: 0;
-  transform: translate3d(0,-20px,0);
+  transform: translate3d(-20px,0,0);
 }
 </style>
