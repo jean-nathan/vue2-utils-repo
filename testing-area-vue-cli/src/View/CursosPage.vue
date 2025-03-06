@@ -1,10 +1,10 @@
 <template>
-  <h1>Pagina Sobre</h1>
+  <h2>CursosPage</h2>
 </template>
 
 <script>
 export default {
-  name: "AboutPage"
+  name: "CursosPage"
 }
 </script>
 

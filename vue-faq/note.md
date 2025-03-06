@@ -34,4 +34,7 @@ Agora, você pode usar `<MeuComponente />` em qualquer lugar de sua aplicação 
 ---
 
 Essas são anotações úteis para quando precisar de um lembrete rápido sobre o Vue CLI e como tornar um componente global. Mantenha este arquivo atualizado à medida que novas informações surgirem!
+
+## Como instalar o Vue Router no Vue2?
+Execute o comando: npm install vue-router@3
 ```
