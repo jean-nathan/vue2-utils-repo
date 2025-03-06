@@ -15,6 +15,10 @@ const routes = [
   {
     path: "/cursos",
     component: CursosPage
+  },
+  {
+    path: "/cursos/:curso",
+    component: CursosPage
   }
 ];
 

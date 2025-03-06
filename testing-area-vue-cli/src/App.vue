@@ -3,12 +3,11 @@
     <h1>AppPage</h1>
     <!--Define os link para o router-->
     <nav>
-
-    </nav>
     <router-link to="/">Home</router-link>
-    <router-link to="/cursos">Cursos</router-link>
+    <router-link to="/cursos/">Cursos</router-link>
     <!--Local onde o componente aparecerá-->
     <router-view></router-view>
+    </nav>
   </div>
 </template>
 
@@ -25,6 +24,10 @@ export default {
 
 a {
   padding: 10px;
+}
+
+nav {
+  padding: 20px 0;
 }
 
 .router-link-exact-active {
