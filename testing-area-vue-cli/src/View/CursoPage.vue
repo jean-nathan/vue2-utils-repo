@@ -1,17 +1,17 @@
 <template>
   <div>
-    <h1>Sessao de Cursos</h1>
     <h2>{{ curso }}</h2>
-    <router-link to="/cursos/javascript">JavaScript</router-link>
-    <router-link to="/cursos/html">HTML</router-link>
-    <router-link to="/cursos/css">CSS</router-link>
-    <router-view></router-view>
+    <ul>
+      <li>Aula 1</li>
+      <li>Aula 2</li>
+      <li>Aula 3</li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: "CursosPage",
+  name: "CursoPage",
   props: ["curso"],
   created() {
       console.log('Esse componente foi criado');
