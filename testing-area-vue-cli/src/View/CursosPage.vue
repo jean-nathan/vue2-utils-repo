@@ -2,9 +2,9 @@
   <div>
     <h1>Sessao de Cursos</h1>
     <h2>{{ curso }}</h2>
-    <router-link to="/cursos/javascript">JavaScript</router-link>
-    <router-link to="/cursos/html">HTML</router-link>
-    <router-link to="/cursos/css">CSS</router-link>
+    <router-link :to="{name: 'curso', params: {curso: 'javascript'}}">JavaScript</router-link>
+    <router-link :to="{name: 'curso', params: {curso: 'html'}}">HTML</router-link>
+    <router-link :to="{name: 'curso', params: {curso: 'css'}}">CSS</router-link>
     <router-view></router-view>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
   name: "CursosPage",
   props: ["curso"],
   created() {
-      console.log('Esse componente foi criado');
+      console.log('Componente CursosPage foi criado');
     },
     beforeRouteUpdate(to, from, next) {
       console.log(to);
