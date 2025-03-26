@@ -6,7 +6,9 @@
     <router-link to="/">Home</router-link>
     <router-link to="/cursos/">Cursos</router-link>
     <!--Local onde o componente aparecerá-->
+    <transition mode="out-in">
     <router-view></router-view>
+    </transition>
     </nav>
   </div>
 </template>
@@ -33,5 +35,16 @@ nav {
 .router-link-exact-active {
   color: #84e;
   font-weight: 600;
+}
+
+.v-enter, .v-leave-to {
+  transform: translate3d(-20px, 0,0);
+  opacity: 0;
+}
+
+.v-enter-active,
+.v-leave-active 
+{
+  transition: all .3s;
 }
 </style>

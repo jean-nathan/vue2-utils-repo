@@ -3,7 +3,9 @@
     <h2>{{ curso }}</h2>
     <router-link :to="{name: 'descricao'}">Descricao</router-link>
     <router-link :to="{name: 'aulas'}">Aulas</router-link>
-    <router-view></router-view>
+    <transition>
+    <router-view mode="out-in" name="topDown"></router-view>
+    </transition>
   </div>
 </template>
 
@@ -35,5 +37,16 @@ nav {
 .router-link-exact-active {
   color: #84e;
   font-weight: 600;
+}
+
+.topDown-enter, .topDown-leave-to {
+  transform: translate3d(0, -40px,0) scale(.2);
+  opacity: 0;
+}
+
+.topDown-enter-active,
+.topDown-leave-active 
+{
+  transition: all .3s;
 }
 </style>
