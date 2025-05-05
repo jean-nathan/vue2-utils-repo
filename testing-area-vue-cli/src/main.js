@@ -4,18 +4,16 @@ import router from './router.js';
 
 Vue.config.productionTip = false
 
-router.beforeEach((to, from, next) => {
-  console.log('to', to);
-  console.log('from', from);
-  console.log('next', next);
-  next()
+// Componentes globais
+const globalComponents = [
+  {name: 'PageLoading', component: () => import('@/components/PageLoading.vue')}
+]
 
+globalComponents.forEach(globalComponent => {
+  Vue.component(globalComponent.name, globalComponent.component)
 })
 
-router.afterEach((to, from) => {
-  console.log('to', to);
-  console.log('from', from);
-})
+
 
 new Vue({
   render: h => h(App),

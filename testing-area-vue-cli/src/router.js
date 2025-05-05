@@ -1,54 +1,81 @@
-import Vue from "vue";
-import Router from "vue-router";
+import Vue from "vue"
+import Router from "vue-router"
 
 //Views
-import HomePage from "./View/HomePage.vue";
-import CursosPage from "./View/CursosPage.vue";
-import CursoPage from "./View/CursoPage.vue";
-import CursoAulas from "./View/CursoAulas.vue";
-import CursoDescricao from "./View/CursoDescricao.vue";
+import HomeView from "@/View/HomeView.vue"
+import ContactView from "./View/ContactView.vue";
+import CoursesView from "./View/CoursesView.vue";
+import CourseView from "./View/CourseView.vue";
+import ClassView from "./View/ClassView.vue";
+import TesteView from "./View/TesteView.vue";
 
 Vue.use(Router);
 
 const routes = [
   {
+    path: "*", // Quando alguém digitar qualquer merda na url, ele redireciona para homeview
+    redirect: "/"
+    },
+  {
     path: "/",
-    component: HomePage,
+    components: {
+      default: HomeView
+    }
+  },
+  {
+    path: "/contato",
+    name: 'contato',
+    component: ContactView
   },
   {
     path: "/cursos",
-    component: CursosPage,
+    name: 'contato',
+    component: CoursesView
+  },
+  {
+    path: "/cursos/:curso",
+    name: 'curso',
+    component: CourseView,
     props: true,
-    beforeEnter: (to, from, next) => {
-      console.log("Foi para cursos!")
-      next()
-    },
-    children: [
+    children: [ // Usaremos ele pois temos um router-link na view curso
       {
-        name: "curso",
-        path: ":curso",
+        path: ":aula", // Não preciso colocar a barra, ele já entende por ser filho
+        name: "aula",
+        component: ClassView,
         props: true,
-        component: CursoPage,
-        children: [
-          {
-            name: "aulas",
-            path: "aulas",
-            component: CursoAulas,
-          },
-          {
-            name: "descricao",
-            path: "descricao",
-            component: CursoDescricao,
-          },
-        ],
-      },
-    ],
+      }
+    ]
+  },
+  {
+    path: "/teste",
+    name: "teste",
+    component: TesteView
   },
 ];
 
 const router = new Router({
   routes,
-  base: process.env.BASE_URL, // PADRAO
+  scrollBehavior () { // <- to, from, savedPosition
+    return {
+      x: 0,
+      y: 0
+    }
+  },
+  base: process.env.BASE_URL, // ⚙️ Define o prefixo raiz para todas as rotas
+  // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+  // Quando usar? ➔ Seu app Vue está dentro de uma subpasta do servidor (ex: /app/)
+  // Funcionamento: ➔ Adiciona automaticamente o prefixo antes de todas as rotas
+  // Exemplo: 
+  // - Base: '/app/' 
+  // - Rota: '/cursos' 
+  // → URL Final: '/app/cursos'
+
+  // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+  // Caso multilíngue: Combine com parâmetros de rota para idiomas
+  // Exemplo: 
+  // - Base: '/app/'
+  // - Rota: '/:lang/cursos' 
+  // → URL: '/app/en/cursos' (en = parâmetro de idioma)    
   mode: "history", // Usando o modo 'history' para URLs mais limpas (sem hash)
 });
 
